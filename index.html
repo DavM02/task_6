@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let nums = [6, 5, 8, 9];
+        // 7 is missing
+
+
+        // step 1
+        // sorry հնդկերեն կոդի համար:)
+
+        function sortArr(arr) {
+            let currentIndex = 0;
+            let newArr = [...arr];
+
+            while (currentIndex < newArr.length) {
+
+                if (newArr[currentIndex] > newArr[currentIndex + 1]) {
+
+                    let temp = newArr[currentIndex];
+                    newArr[currentIndex] = newArr[currentIndex + 1];
+                    newArr[currentIndex + 1] = temp;
+                }
+                currentIndex++;
+            }
+
+            return newArr;
+        }
+
+ 
+        const sortedArr = sortArr(nums);
+
+
+        // step 2
+
+        function findMissingNum(arr) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i + 1] - arr[i] !== 1) {
+                    return arr[i] + 1;
+                }
+            }
+        }
+
+        const missingNumber = findMissingNum(sortedArr);
+        console.log(missingNumber)
+
+    </script>
+</body>
+
+</html>
