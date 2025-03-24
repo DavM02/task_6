@@ -17,23 +17,25 @@
         // step 1
         // sorry հնդկերեն կոդի համար:)
 
-        function sortArr(arr) {
-            let currentIndex = 0;
+
+        function sortedArr(arr) {
             let newArr = [...arr];
 
-            while (currentIndex < newArr.length) {
+            for (let i = 1; i < newArr.length; i++) {
+                let current = newArr[i];
+                let j = i - 1;
 
-                if (newArr[currentIndex] > newArr[currentIndex + 1]) {
-
-                    let temp = newArr[currentIndex];
-                    newArr[currentIndex] = newArr[currentIndex + 1];
-                    newArr[currentIndex + 1] = temp;
+                while (j >= 0 && newArr[j] > current) {
+                    newArr[j + 1] = newArr[j];
+                    j--;
                 }
-                currentIndex++;
+
+                newArr[j + 1] = current;
             }
 
             return newArr;
         }
+
 
  
         const sortedArr = sortArr(nums);
